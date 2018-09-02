@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>3D</title>
+
+    <style>
+        html,
+        body,
+        .container {
+          height: 100%;
+          width:100%;
+          margin: 0;
+          position: fixed;
+        }
+
+        .canvas {
+          width:100%;
+          height: 100%;
+
+        }
+    </style>
+  </head>
+
+  <body>
+
+    <script id="fragment">
+     precision mediump float;
+
+     void main(void) {
+       gl_FragColor = vec4(1.0, 1.0, 1.0, 1.0);
+     }
+    </script>
+
+    <script id="vertex">
+      attribute vec3 aVertexPosition;
+
+      uniform mat4 MVP;
+
+      void main(void) {
+        gl_PointSize = 5.0;
+        gl_Position = MVP * vec4(aVertexPosition, 1.0);
+      }
+    </script>
+
+
+    <div class="container">
+      <canvas id="glCanvas" class="canvas" ></canvas>
+    </div>
+
+  </body>
+
+  <script src="dist/main.js"></script>
+</html>
