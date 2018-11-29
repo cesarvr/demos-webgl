@@ -17,5 +17,5 @@ let links = (source)=>getDirectories(source).map(folder=> folder.replace('static
 app.get('/', (req, res) => res.send(links('static').join('<br>')))
 app.use(express.static('./static'))
 
-app.listen(8080, () => console.log('serving demos..!'))
+app.listen(process.env['PORT'], () => console.log('serving demos..!'))
 
